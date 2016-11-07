@@ -9,11 +9,12 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath('org.springframework.build.gradle:propdeps-plugin:0.0.7')
+        classpath('com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7')
     }
 }
 
 group 'me.bayes'
-version '1.0.0-SNAPSHOT'
+version '1.0.0'
 
 apply plugin: 'java'
 apply plugin: 'maven'
@@ -21,17 +22,41 @@ apply plugin: 'propdeps'
 apply plugin: 'propdeps-maven'
 apply plugin: 'propdeps-idea'
 apply plugin: 'propdeps-eclipse'
+apply plugin: 'com.jfrog.bintray'
+
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 jar {
     baseName = 'vertx-spring-boot-starter'
-    version = '0.0.1-SNAPSHOT'
+    version = '1.0.0'
 }
 
 repositories {
     mavenCentral()
+}
+
+bintray {
+    user = 'kevinbayes'
+    key = 'cd66c2299d85f8c9f280279866ff478681a31c5b'
+    configurations = ['archives']
+    pkg {
+        repo = 'generic'
+        name = 'bayes-release'
+        licenses = ['Apache-2.0']
+    }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            name = 'Kevin Bayes Public Release Repository'
+            repository(id: 'bayes-release', url: 'https://api.bintray.com/maven/kevinbayes/bayes-release/vertx-spring-boot-starter') {
+                authentication(userName: System.getenv("bin_user"), password: System.getenv("bin_pass"))
+            }
+        }
+    }
 }
 
 dependencies {
@@ -63,4 +88,9 @@ task writeNewPom << {
             }
         }
     }.writeTo("$buildDir/classes/main/META-INF/maven.me.bayes.vertx.spring.boot.vertx-spring-boot-starter/pom.xml")
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.1'
 }
