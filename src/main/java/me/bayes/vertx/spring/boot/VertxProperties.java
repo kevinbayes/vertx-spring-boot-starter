@@ -1,12 +1,29 @@
+/**
+ * Copyright 2016 Kevin Bayes
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
 package me.bayes.vertx.spring.boot;
 
-import io.vertx.core.VertxOptions;
+import io.vertx.core.dns.AddressResolverOptions;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 
 import static io.vertx.core.VertxOptions.*;
+
 /**
- * Created by kevinbayes on 7/11/16.
+ * @author Kevin Bayes
+ * @version 0.0.1
  */
 @ConfigurationProperties(prefix = "spring.boot.ext.vertx")
 public class VertxProperties {
@@ -21,15 +38,11 @@ public class VertxProperties {
     private long blockedThreadCheckInterval = DEFAULT_BLOCKED_THREAD_CHECK_INTERVAL;
     private long maxEventLoopExecuteTime = DEFAULT_MAX_EVENT_LOOP_EXECUTE_TIME;
     private long maxWorkerExecuteTime = DEFAULT_MAX_WORKER_EXECUTE_TIME;
-    //private ClusterManager clusterManager;
     private boolean haEnabled = DEFAULT_HA_ENABLED;
     private int quorumSize = DEFAULT_QUORUM_SIZE;
     private String haGroup = DEFAULT_HA_GROUP;
-   // private MetricsOptions metricsOptions = new MetricsOptions();
     private long warningExceptionTime = DEFAULT_WARNING_EXCEPTION_TIME;
     //private EventBusOptions eventBusOptions = new EventBusOptions();
-    //private AddressResolverOptions addressResolverOptions = new AddressResolverOptions();
-
 
     public VertxProperties() {
     }
@@ -114,4 +127,5 @@ public class VertxProperties {
     public void setWarningExceptionTime(long warningExceptionTime) {
         this.warningExceptionTime = warningExceptionTime;
     }
+
 }
