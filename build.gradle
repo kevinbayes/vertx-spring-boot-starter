@@ -1,0 +1,68 @@
+buildscript {
+    ext {
+        springBootVersion = '1.4.1.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven { url 'http://repo.spring.io/plugins-release' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath('org.springframework.build.gradle:propdeps-plugin:0.0.7')
+    }
+
+
+}
+
+group 'me.bayes'
+version '1.0.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'propdeps'
+apply plugin: 'propdeps-maven'
+apply plugin: 'propdeps-idea'
+apply plugin: 'propdeps-eclipse'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+jar {
+    baseName = 'vertx-spring-boot-starter'
+    version = '0.0.1-SNAPSHOT'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
+    compile("io.vertx:vertx-core:3.3.3")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+
+    optional("org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}")
+}
+
+compileJava.dependsOn(processResources)
+
+task writeNewPom << {
+    pom {
+        project {
+            groupId 'me.bayes'
+            artifactId 'vertx-spring-boot-starter'
+            version '1.0.0'
+
+            inceptionYear '2016'
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+        }
+    }.writeTo("$buildDir/newpom.xml")
+}
