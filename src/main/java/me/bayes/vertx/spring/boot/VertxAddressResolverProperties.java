@@ -22,7 +22,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author Kevin Bayes
  * @version 0.0.1
  */
-@ConfigurationProperties(prefix = "spring.boot.ext.vertx.addressresolver", ignoreUnknownFields = true)
+@ConfigurationProperties(prefix = "spring.boot.ext.vertx.addressresolver")
 public class VertxAddressResolverProperties {
 
     private String hostsPath;

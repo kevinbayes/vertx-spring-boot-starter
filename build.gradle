@@ -10,8 +10,6 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath('org.springframework.build.gradle:propdeps-plugin:0.0.7')
     }
-
-
 }
 
 group 'me.bayes'
@@ -64,5 +62,5 @@ task writeNewPom << {
                 }
             }
         }
-    }.writeTo("$buildDir/newpom.xml")
+    }.writeTo("$buildDir/classes/main/META-INF/maven.me.bayes.vertx.spring.boot.vertx-spring-boot-starter/pom.xml")
 }

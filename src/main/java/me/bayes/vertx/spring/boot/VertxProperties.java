@@ -15,9 +15,7 @@
  */
 package me.bayes.vertx.spring.boot;
 
-import io.vertx.core.dns.AddressResolverOptions;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-
 
 import static io.vertx.core.VertxOptions.*;
 
@@ -33,8 +31,6 @@ public class VertxProperties {
     private int eventLoopPoolSize = DEFAULT_EVENT_LOOP_POOL_SIZE;
     private int workerPoolSize = DEFAULT_WORKER_POOL_SIZE;
     private int internalBlockingPoolSize = DEFAULT_INTERNAL_BLOCKING_POOL_SIZE;
-
-
     private long blockedThreadCheckInterval = DEFAULT_BLOCKED_THREAD_CHECK_INTERVAL;
     private long maxEventLoopExecuteTime = DEFAULT_MAX_EVENT_LOOP_EXECUTE_TIME;
     private long maxWorkerExecuteTime = DEFAULT_MAX_WORKER_EXECUTE_TIME;
@@ -42,7 +38,6 @@ public class VertxProperties {
     private int quorumSize = DEFAULT_QUORUM_SIZE;
     private String haGroup = DEFAULT_HA_GROUP;
     private long warningExceptionTime = DEFAULT_WARNING_EXCEPTION_TIME;
-    //private EventBusOptions eventBusOptions = new EventBusOptions();
 
     public VertxProperties() {
     }
