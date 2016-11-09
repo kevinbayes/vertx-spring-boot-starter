@@ -1,13 +1,32 @@
-# Vertx Spring Boot Starter
+# Vert.x Spring Boot Starter
 
 A spring boot starter that allows you to start a Vertx embedded instance inside spring boot.
 
 ## Usage
 To use this starter you will need to:
-1. Add the bintray repo
+1. Add the bintray repo 
 2. Add a dependency based on your build system
 
-The repository conforms to maven
+### Add Bintray
+
+URL: https://dl.bintray.com/kevinbayes/bayes-release
+
+### Add Dependency
+
+Maven
+```
+<dependency>
+  <groupId>me.bayes</groupId>
+  <artifactId>vertx-spring-boot-starter</artifactId>
+  <version>1.0.0</version>
+  <type>pom</type>
+</dependency>
+```
+
+Gradle
+```
+compile 'me.bayes:vertx-spring-boot-starter:1.0.0'
+```
  
  
 ## License
