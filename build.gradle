@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.4.1.RELEASE'
+        springBootVersion = '1.4.2.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -14,7 +14,7 @@ buildscript {
 }
 
 group 'me.bayes'
-version '1.0.0'
+version '1.0.1'
 
 apply plugin: 'java'
 apply plugin: 'maven'
@@ -30,7 +30,7 @@ targetCompatibility = 1.8
 
 jar {
     baseName = 'vertx-spring-boot-starter'
-    version = '1.0.0'
+    version = '1.0.1'
 }
 
 repositories {
@@ -38,8 +38,8 @@ repositories {
 }
 
 bintray {
-    user = 'kevinbayes'
-    key = 'cd66c2299d85f8c9f280279866ff478681a31c5b'
+    user = System.getenv("bin_user")
+    key = System.getenv("bin_pass")
     configurations = ['archives']
     pkg {
         repo = 'generic'
@@ -76,7 +76,7 @@ task writeNewPom << {
         project {
             groupId 'me.bayes'
             artifactId 'vertx-spring-boot-starter'
-            version '1.0.0'
+            version '1.0.1'
 
             inceptionYear '2016'
             licenses {
