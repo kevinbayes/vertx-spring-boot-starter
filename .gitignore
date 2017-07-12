@@ -35,4 +35,5 @@ gradle-app.setting
 .gradle/
 .idea/
 .vertx/
+*.iml
 

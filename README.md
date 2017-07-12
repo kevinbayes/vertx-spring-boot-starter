@@ -18,14 +18,14 @@ Maven
 <dependency>
   <groupId>me.bayes</groupId>
   <artifactId>vertx-spring-boot-starter</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.2</version>
   <type>pom</type>
 </dependency>
 ```
 
 Gradle
 ```
-compile 'me.bayes:vertx-spring-boot-starter:1.0.0'
+compile 'me.bayes:vertx-spring-boot-starter:1.0.2'
 ```
  
  
